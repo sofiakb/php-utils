@@ -1,0 +1,38 @@
+{
+    "name": "sofiakb/php-utils",
+    "description": "A library with php utils.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sofiakb\\Utils\\": "src/"
+        },
+        "classmap": [
+            "tests/"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Sofiakb",
+            "email": "contact.sofiakb@gmail.com",
+            "homepage": "https://sofianeakbly.fr",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "contact.sofiakb@gmail.com"
+    },
+    "minimum-stability": "stable",
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "version": "v0.0.2",
+    "time": "2021-07-30",
+    "require": {
+        "ext-json": "*"
+    }
+}
