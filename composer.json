@@ -30,9 +30,9 @@
     "require-dev": {
         "phpunit/phpunit": "^9.5"
     },
-    "version": "v0.0.2",
-    "time": "2021-07-30",
     "require": {
         "ext-json": "*"
-    }
+    },
+    "version": "v0.0.2",
+    "time": "2021-07-30"
 }
