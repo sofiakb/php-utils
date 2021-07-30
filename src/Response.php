@@ -35,9 +35,9 @@ class Response
      *
      * @param int|mixed $status Statut de la réponse
      * @param mixed $data Données à envoyer avec la réponse
-     * @return string
+     * @return string|mixed
      */
-    public static function main($status = 200, $data = null): string
+    public static function main($status = 200, $data = null)
     {
         if (!is_int($status)) {
             $data = $status;
@@ -65,9 +65,9 @@ class Response
      *
      * @param int|mixed $status Statut de la réponse
      * @param mixed $data Données à envoyer avec la réponse
-     * @return string
+     * @return string|mixed
      */
-    public static function success($status = 200, $data = null): string
+    public static function success($status = 200, $data = null)
     {
         return is_int($status) ? self::main($status, $data) : self::main(200, $data ?? $status);
     }
@@ -81,9 +81,9 @@ class Response
      *
      * @param int|mixed $status Statut de la réponse
      * @param mixed $data Données à envoyer avec la réponse
-     * @return string
+     * @return string|mixed
      */
-    public static function error($status = 500, $data = null): string
+    public static function error($status = 500, $data = null)
     {
         if (!is_int($status)) {
             $data = ['message' => $data, 'code' => $status];
@@ -106,9 +106,9 @@ class Response
     /**
      * @param $data
      * @param ?string $name
-     * @return string
+     * @return string|mixed
      */
-    public static function unknown($data, ?string $name = null): string
+    public static function unknown($data, ?string $name = null)
     {
         if (Success::is($data)) {
             $message = $name ? [$name => $data->message] : $data->message;
