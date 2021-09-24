@@ -16,68 +16,68 @@ namespace Sofiakb\Utils\Result;
 class Result
 {
     /**
-     * @param null $message
-     * @return array
+     * @param string|null $message
+     * @return Error|Success
      */
-    public static function unauthorized($message = null)
+    public static function unauthorized(?string $message = null)
     {
         return self::toArray(401, $message ?? "Vous devez être connecté pour accéder aux informations");
     }
     
     /**
-     * @param null $message
-     * @return array
+     * @param string|null $message
+     * @return Error|Success
      */
-    public static function forbidden($message = null)
+    public static function forbidden(?string $message = null)
     {
         return self::toArray(403, $message ?? "Vous n'avez pas les droits pour effecuter cette opération");
     }
     
     /**
-     * @param null $message
-     * @return array
+     * @param string|null $message
+     * @return Error|Success
      */
-    public static function badRequest($message = null)
+    public static function badRequest(?string $message = null)
     {
         return self::toArray(400, $message ?? "Merci de bien vouloir remplir les informations");
     }
     
     /**
-     * @param null $message
-     * @return array
+     * @param string|null $message
+     * @return Error|Success
      */
-    public static function notFound($message = null)
+    public static function notFound(?string $message = null)
     {
         return self::toArray(404, $message ?? "La page demandée n'existe pas");
     }
     
     /**
-     * @param null $message
+     * @param string|null $message
      * @param int $code
-     * @return array
+     * @return Error|Success
      */
-    public static function error($message = null, $code = 500)
+    public static function error(?string $message = null, int $code = 500)
     {
         return Result::toArray($code, $message);
     }
     
     /**
-     * @param null $message
+     * @param string|null $message
      * @param int $code
-     * @return array
+     * @return Error|Success
      */
-    public static function duplicate($message = null, $code = 419)
+    public static function duplicate(?string $message = null, int $code = 419)
     {
         return self::toArray($code, $message ?? "Une ressource existe déjà avec cette valeur");
     }
     
     /**
      * @param $code
-     * @param null $message
+     * @param string|null $message
      * @param bool $error
-     * @return array
+     * @return Error|Success
      */
-    public static function toArray($code, $message = null, $error = true)
+    public static function toArray($code, ?string $message = null, bool $error = true)
     {
         return $error ? new Error($code, $message) : new Success($code, $message);
     }
@@ -85,7 +85,7 @@ class Result
     /**
      * @param string $message
      * @param int $code
-     * @return array|Error|Success
+     * @return Error|Success
      */
     public static function success($message = 'OK', $code = 200)
     {
