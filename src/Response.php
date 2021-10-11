@@ -99,7 +99,7 @@ class Response
         if ($status === 404)
             return self::main($status, ["error" => $data ?: "La ressource demandée n'existe pas"]);
         if ($status === 405)
-            return self::main($status, ["error" => $data ?: "La ressource demandée n'existe pas"]);
+            return self::main($status, ["error" => $data ?: "La méthode utilisé n'est pas autorisé"]);
         return self::main($status, ["error" => $data ?: "Une erreur inconnue est survenue"]);
     }
     
