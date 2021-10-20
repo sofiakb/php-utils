@@ -31,11 +31,12 @@ class Validation
      * @param $values
      * @return bool
      */
-    public static function required($data, $values): bool
+    public static function required($data, $values, $strict = true): bool
     {
         foreach ($values as $value) {
-            if (!(self::respectRequired($data, $value)))
-                return false;
+            if ($strict && isset($data->$value))
+                if (!(self::respectRequired($data, $value)))
+                    return false;
         }
         return true;
     }
@@ -55,13 +56,24 @@ class Validation
      * @param $values
      * @return bool
      */
-    public static function length($data, $values): bool
+    public static function length($data, $values, $strict = true): bool
     {
         foreach ($values as $field => $length) {
-            if (!(self::respectLength($data, $field, $length)))
-                return false;
+            if ($strict && isset($data->$value))
+                if (!(self::respectLength($data, $field, $length)))
+                    return false;
         }
         return true;
+    }
+    
+    /**
+     * @param $data
+     * @param $values
+     * @return bool
+     */
+    public static function size($data, $values, $strict = true): bool
+    {
+        return self::length($data, $values, $strict);
     }
 
     /**
@@ -80,11 +92,12 @@ class Validation
      * @param $values
      * @return bool
      */
-    public static function regex($data, $values): bool
+    public static function regex($data, $values, $strict = true): bool
     {
         foreach ($values as $field => $regex) {
-            if (!(self::respectRegex($data, $field, $regex)))
-                return false;
+            if ($strict && isset($data->$value))
+                if (!(self::respectRegex($data, $field, $regex)))
+                    return false;
         }
         return true;
     }
@@ -131,11 +144,12 @@ class Validation
      * @param $values
      * @return bool
      */
-    public static function integer($data, $values): bool
+    public static function integer($data, $values, $strict = true): bool
     {
         foreach ($values as $field) {
-            if (!(self::respectInteger($data, $field)))
-                return false;
+            if ($strict && isset($data->$value))
+                if (!(self::respectInteger($data, $field)))
+                    return false;
         }
         return true;
     }
