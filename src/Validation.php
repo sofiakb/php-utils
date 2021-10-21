@@ -34,7 +34,7 @@ class Validation
     public static function required($data, $values, $strict = true): bool
     {
         foreach ($values as $value) {
-            if ($strict && isset($data->$value))
+            if ($strict)
                 if (!(self::respectRequired($data, $value)))
                     return false;
         }
