@@ -33,6 +33,6 @@
     "require": {
         "ext-json": "*"
     },
-    "version": "v0.0.4-beta3",
+    "version": "v0.0.4-beta4",
     "time": "2021-10-11"
 }
