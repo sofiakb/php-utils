@@ -59,13 +59,13 @@ class Validation
     public static function length($data, $values, $strict = true): bool
     {
         foreach ($values as $field => $length) {
-            if ($strict && isset($data->$value))
+            if ($strict && isset($data->$field))
                 if (!(self::respectLength($data, $field, $length)))
                     return false;
         }
         return true;
     }
-    
+
     /**
      * @param $data
      * @param $values
@@ -95,7 +95,7 @@ class Validation
     public static function regex($data, $values, $strict = true): bool
     {
         foreach ($values as $field => $regex) {
-            if ($strict && isset($data->$value))
+            if ($strict && isset($data->$field))
                 if (!(self::respectRegex($data, $field, $regex)))
                     return false;
         }
@@ -147,7 +147,7 @@ class Validation
     public static function integer($data, $values, $strict = true): bool
     {
         foreach ($values as $field) {
-            if ($strict && isset($data->$value))
+            if ($strict && isset($data->$field))
                 if (!(self::respectInteger($data, $field)))
                     return false;
         }
